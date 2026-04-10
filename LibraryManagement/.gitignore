@@ -12,11 +12,15 @@
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
-LibraryManagement.csproj/
+# LibraryManagement.csproj
 # Mono auto generated files
 mono_crash.*
-bin/
-obj/
+# bin
+# appsettings.Development.json
+# LibraryManagement.http
+# LibraryManagement.csproj
+# appsettings.json
+# obj
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
