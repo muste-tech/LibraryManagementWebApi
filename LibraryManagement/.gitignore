@@ -15,12 +15,12 @@
 # LibraryManagement.csproj
 # Mono auto generated files
 mono_crash.*
-# bin
-# appsettings.Development.json
-# LibraryManagement.http
-# LibraryManagement.csproj
-# appsettings.json
-# obj
+bin
+appsettings.Development.json
+LibraryManagement.http
+LibraryManagement.csproj
+appsettings.json
+obj
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
