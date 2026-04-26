@@ -1,23 +1,19 @@
+﻿using LibraryProject.Repositories;
 using LibraryProject.Data;
 using LibraryProject.Repositories.Interfaces;
 using LibraryProject.Repositories.Implementations;
-using LibraryProject.Repositories;
 using LibraryProject.Services.Interface;
 using LibraryProject.Services;
 using Microsoft.EntityFrameworkCore;
-using Pomelo.EntityFrameworkCore.MySql;
-using System.Reflection.Metadata.Ecma335;
-
 
 var builder = WebApplication.CreateBuilder(args);
 
 // 🔷 DB CONNECTION
-   builder.Services.AddDbContext<LibraryDbContext>(options =>
+builder.Services.AddDbContext<LibraryDbContext>(options =>
     options.UseMySql(
         builder.Configuration.GetConnectionString("DefaultConnection"),
-      ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection"))
+        ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection"))
     ));
-
 
 // 🔷 CONTROLLERS
 builder.Services.AddControllers();
@@ -30,7 +26,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddTransient<IBookRepository, BookRepository>();
 builder.Services.AddTransient<IAuthorRepository, AuthorRepository>();
 builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
-builder.Services.AddTransient<IMemberRepository,  MemberRepository>();
+builder.Services.AddTransient<IMemberRepository, MemberRepository>();
 builder.Services.AddTransient<IBorrowRepository, BorrowRepository>();
 
 // 🔷 DEPENDENCY INJECTION (SERVICE)
@@ -49,9 +45,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
 
 app.MapControllers();
